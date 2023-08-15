@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import heart from './icons/heartIcon.svg';
-import logoIcon from './icons/movieez.svg';
+import logo from './logo.svg';
 import tableBg from './backgrounds/tableDesign.svg';
+import pic from './backgrounds/profilePic.png'
 
 export {
-    logo, heart, logoIcon, tableBg
+    logo, heart, tableBg, pic
 }

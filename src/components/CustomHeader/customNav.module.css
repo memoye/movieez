@@ -1,0 +1,61 @@
+.CustomHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1240px;
+  padding: 1rem 20px;
+  margin: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.navBtn {
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+}
+
+.navBtn:hover {
+  background-color: rgba(var(--theme-primary), 0.4);
+}
+
+.logoText {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.navEnd {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navEnd:hover .downArrow {
+  margin-top: 0.5rem;
+}
+
+.profileBtn {
+  box-sizing: content-box;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgb(var(--theme-primary));
+  aspect-ratio: 1;
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.downArrow {
+  font-size: 1.5rem;
+  color: rgb(var(--primaryText));
+  transition: 100ms margin;
+}

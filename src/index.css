@@ -1,17 +1,35 @@
 @import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
 
-:root {
-  --dark-bg: #1b1912;
-  --light-bg: #d9d9d9;
-  --primary-font: "Nunito", sans-serif;
-}
-
 * {
   box-sizing: border-box;
 }
 
+:root {
+  --primary-font: "Nunito", sans-serif;
+  --theme-primary: 206, 175, 39;
+}
+
 body {
-  color: #ffffff;
   font-family: var(--primary-font);
+  color: rgb(var(--primaryText));
+}
+
+a {
+  text-decoration: none;
+  color: rgb(var(--theme-col));
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: 217, 217, 217;
+    --primaryText: 27, 25, 18;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: 27, 25, 18;
+    --primaryText: 255, 255, 255;
+  }
 }

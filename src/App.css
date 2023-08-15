@@ -1,3 +1,15 @@
 .App {
-  background: var(--dark-bg);
+  background: rgb(var(--bg));
+}
+
+.active {
+  background-color: rgb(var(--theme-primary));
+  color: rgb(var(--bg));
+  font-weight: 700;
+}
+
+.active:hover {
+  background-color: rgb(var(--theme-primary)) !important;
+  color: rgb(var(--bg)) !important;
+  font-weight: 700 !important;
 }
