@@ -1,6 +1,7 @@
 import styles from './customHeader.module.css';
 import { logo, menuDots, pic } from '../../assets'
 import { HiOutlineChevronDown } from 'react-icons/hi';
+import { BiSearchAlt } from 'react-icons/bi';
 import { RiCloseFill } from 'react-icons/ri'
 import { TiThMenu } from 'react-icons/ti'
 import { useEffect, useState } from 'react';
@@ -29,6 +30,9 @@ const CustomHeader = () => {
 
             <div className={ `${styles.search}` }>
                 <input type="text" placeholder='Search by Title, Genres, etc.' />
+                <submit className={ styles.searchSubmit }>
+                    <BiSearchAlt />
+                </submit>
             </div>
 
             <div className={ `${hamburgerOpen ? styles.mobileMenu : styles.hide}` }>
