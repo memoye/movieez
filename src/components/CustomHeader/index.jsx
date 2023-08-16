@@ -1,11 +1,18 @@
-import styles from './customNav.module.css';
-import { logo, pic } from '../../assets'
+import styles from './customHeader.module.css';
+import { logo, menuDots, pic } from '../../assets'
 import { NavLink } from 'react-router-dom';
 import { HiOutlineChevronDown } from 'react-icons/hi';
+import { RiCloseFill } from 'react-icons/ri'
+import { useEffect, useState } from 'react';
 
 
 const CustomHeader = () => {
+    const [hamburgerOpen, setHamburgerOpen] = useState(true)
 
+
+    useEffect(() => {
+        console.log(window.visualViewport)
+    }, [])
 
     return (
 
@@ -21,8 +28,32 @@ const CustomHeader = () => {
                 <NavLink to={ '/shows' } className={ styles.navBtn } >Shows</NavLink>
                 <NavLink to={ '/favorites' } className={ styles.navBtn } >Favorites</NavLink>
             </nav>
+
+            { hamburgerOpen &&
+                <>
+                    <div className={ styles.mobileMenu }>
+                        <NavLink to={ '/' } className={ styles.navBtn } > Home </NavLink>
+                        <NavLink to={ '/trending' } className={ styles.navBtn } >Trending</NavLink>
+                        <NavLink to={ '/discover' } className={ styles.navBtn } >Discover</NavLink>
+                        <NavLink to={ '/shows' } className={ styles.navBtn } >Shows</NavLink>
+                        <NavLink to={ '/favorites' } className={ styles.navBtn } >Favorites</NavLink>
+
+                        <RiCloseFill className={ styles.closeBtn } onClick={ () => {
+                            setHamburgerOpen(prev => !prev)
+                        } } />
+
+                    </div>
+                </>
+            }
             <div className={ styles.navEnd }>
-                <div style={ { background: `url(${pic && pic}) no-repeat center center / cover` } } className={ styles.profileBtn }>{ !pic && 'B' }</div>
+                { !hamburgerOpen &&
+                    <div className={ styles.menuDots } onClick={ () => {
+                        setHamburgerOpen(prev => !prev)
+                    } }>
+                        <img src={ menuDots } alt="Open navigation" />
+                    </div>
+                }
+                <div style={ { background: `url(${pic}) no-repeat center center / cover` } } className={ styles.profileBtn }>{ !pic && 'B' }</div>
                 <HiOutlineChevronDown className={ styles.downArrow } />
             </div>
 
