@@ -12,9 +12,9 @@ const CustomHeader = () => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false)
 
 
-    useEffect(() => {
-        console.log(window.visualViewport)
-    }, [])
+    // useEffect(() => {
+    //     console.log(window.visualViewport)
+    // }, [])
 
     return (
 
@@ -30,9 +30,9 @@ const CustomHeader = () => {
 
             <div className={ `${styles.search}` }>
                 <input type="text" placeholder='Search by Title, Genres, etc.' />
-                <submit className={ styles.searchSubmit }>
+                <button type='submit' className={ styles.searchSubmit }>
                     <BiSearchAlt />
-                </submit>
+                </button>
             </div>
 
             <div className={ `${hamburgerOpen ? styles.mobileMenu : styles.hide}` }>

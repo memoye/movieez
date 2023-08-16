@@ -1,10 +1,17 @@
 .CustomHeader {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1240px;
   padding: 1rem 20px;
   margin: auto;
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 2rem;
 }
 
 .mobileMenu {
@@ -79,15 +86,20 @@
 
 .searchSubmit {
   display: grid;
+  border: none;
   place-items: center;
   box-sizing: content-box;
   position: absolute;
+  font-weight: 700;
   top: -2.5px;
   right: -2px;
   padding: 0.5rem;
   background: rgb(var(--theme-primary));
   border-radius: 50%;
   color: rgb(var(--bg));
+}
+
+.searchSubmit:hover {
   box-shadow: -4px 4px 9px -5px rgb(var(--bg));
 }
 
