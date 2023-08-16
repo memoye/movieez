@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1240px;
-  padding: 0.5rem 20px;
+  padding: 1rem 20px;
   margin: auto;
 }
 
@@ -48,7 +48,7 @@
   gap: 0.5rem;
 }
 
-.navEnd:hover .downArrow {
+.downArrow:hover {
   margin-top: 0.5rem;
 }
 
@@ -58,8 +58,22 @@
   place-items: center;
   border: 2px solid rgb(var(--theme-primary));
   aspect-ratio: 1;
-  width: 3rem;
+  width: 2rem;
   border-radius: 50%;
+}
+
+.search {
+  display: block;
+}
+
+.search input {
+  background: rgb(var(--primaryText));
+  outline: none;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 20px;
+  color: rgb(var(--bg));
+  font-weight: 700;
 }
 
 .downArrow {
@@ -68,18 +82,53 @@
   transition: 100ms margin;
 }
 
+.hide {
+  display: none;
+}
+
+.hello {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .nav {
     display: none;
   }
 
-  .menuDots {
+  .hello {
+    display: block;
+  }
+
+  .hamburgerMenu {
     display: inline-block;
-    box-sizing: content-box;
     align-self: center;
-    margin-right: 0.5rem;
-    margin-top: 0.7rem;
-    padding: 5px;
+    justify-content: center;
+    font-size: 2rem;
+    color: rgb(var(--theme-primary));
+    margin-top: 5px;
+  }
+
+  .search {
+    display: block;
+  }
+
+  .search input {
+    background: rgb(var(--primaryText));
+    outline: none;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 20px;
+    color: rgb(var(--bg));
+    font-weight: 700;
+  }
+
+  .search input::placeholder {
+    font-size: 0.9rem;
+    color: rgb(var(--bg), 0.5);
+  }
+
+  .menuDots img {
+    width: 100%;
   }
 
   .mobileMenu {
@@ -93,7 +142,7 @@
     border-radius: 5px;
     position: absolute;
     top: 0;
-    right: 13%;
+    right: 7rem;
   }
 
   .closeBtn {
@@ -113,5 +162,11 @@
 
   .navBtn {
     padding: 0.5rem 1.25rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .CustomHeader {
+    flex-wrap: wrap;
   }
 }
