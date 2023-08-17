@@ -1,18 +1,32 @@
+.header {
+  z-index: 10;
+}
+
 .CustomHeader {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1240px;
   padding: 1rem 20px;
   margin: auto;
   z-index: 10;
   position: fixed;
   width: 100%;
+  max-width: 14400px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  top: 2.5rem;
+  top: 2rem;
+  /* transition: 2s all; */
+}
+
+.addBg {
+  transition: 300ms ease all;
+  background: rgb(var(--bg));
+}
+
+.fixColor {
+  color: rgb(var(--exception));
 }
 
 .mobileMenu {
@@ -106,7 +120,7 @@
 
 .downArrow {
   font-size: 1.5rem;
-  color: rgb(var(--primaryText));
+  /* color: rgb(var(--primaryText)); */
   transition: 100ms margin;
 }
 
@@ -118,7 +132,7 @@
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
   .nav {
     display: none;
   }

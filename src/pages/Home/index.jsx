@@ -1,5 +1,6 @@
 import styles from './home.module.css'
 import poster from '../../assets/backgrounds/posterBg.webp';
+import spiderman from '../../assets/spiderman.jpg'
 
 const Home = () => {
     return (
@@ -9,11 +10,11 @@ const Home = () => {
                     <div className={ styles.heroContent }>
                         <article className={ styles.heroText }>
                             <h1 className={ styles.heroTitle }>{ 'Spider-man: Into the spider-verse' }</h1>
-                            <p className={ styles.heroDesc }></p>
+                            <p className={ styles.heroDesc }>After reuniting with Gwen Stacy, Brooklyn's full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence...</p>
                             <div className={ styles.heroCTA }></div>
                         </article>
                         <div className={ styles.heroImg }>
-
+                            <img src={ spiderman } alt="movie poster" />
                         </div>
                     </div>
 

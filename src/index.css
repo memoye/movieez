@@ -18,6 +18,11 @@ body::-webkit-scrollbar {
   --primary-font: "Nunito", sans-serif;
   --secondary-font: "Gruppo", sans-serif;
   --theme-primary: 206, 175, 39;
+
+  /* dark */
+  --bg: 27, 25, 18;
+  --primaryText: 255, 255, 255;
+  --exception: 255, 255, 255;
 }
 
 body {
@@ -31,16 +36,19 @@ a {
   color: rgb(var(--theme-col));
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --bg: 217, 217, 217;
     --primaryText: 27, 25, 18;
-  }
-}
+    --exception: 255, 255, 255;
+  } 
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: 27, 25, 18;
     --primaryText: 255, 255, 255;
+    --exception: 255, 255, 255;
+    /* --exception: 27, 25, 18; */
   }
 }

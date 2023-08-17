@@ -10,16 +10,25 @@ import CustomNav from './CustomNav';
 
 const CustomHeader = () => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
 
+    const applyBg = () => {
+        if (window.scrollY >= 25) {
+            setScrolled(true)
+        } else {
+            setScrolled(false)
+        }
+    }
 
-    // useEffect(() => {
-    //     console.log(window.visualViewport)
-    // }, [])
+    useEffect(() => {
+        // console.log('nav')
+        window.addEventListener('scroll', applyBg)
+    }, [])
 
     return (
 
-        <header className={ styles.CustomHeader }>
-            <div className={ styles.logo }>
+        <header className={ `${styles.CustomHeader} ${scrolled && styles.addBg}` } >
+            <div className={ `${styles.logo} ${!scrolled && styles.fixColor}` }>
                 <img src={ logo } alt="Movieez" />
                 <span className={ styles.logoText }>Movieez!</span>
             </div>
@@ -52,7 +61,7 @@ const CustomHeader = () => {
                 </div>
 
                 <div style={ { background: `url(${pic}) no-repeat center center / cover` } } className={ styles.profileBtn }>{ !pic && 'B' }</div>
-                <HiOutlineChevronDown className={ styles.downArrow } />
+                <HiOutlineChevronDown className={ `${styles.downArrow} ${!scrolled && styles.fixColor}` } />
             </div>
 
         </header >

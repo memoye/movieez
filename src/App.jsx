@@ -5,14 +5,16 @@ import { Home, Trending } from './pages';
 import { HeaderAndFooter } from './components';
 import poster from './assets/backgrounds/posterBg.webp'
 
+
 function App() {
 
   useEffect(() => {
-    console.log("App.jsx")
+
   }, [])
 
   return (
-    <div className="App">
+    <div className="App" >
+
       <Router>
         <Routes>
           <Route element={ <HeaderAndFooter /> }>
@@ -21,6 +23,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+
     </div>
   )
 }

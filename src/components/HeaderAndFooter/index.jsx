@@ -6,7 +6,7 @@ const HeaderAndFooter = () => {
     return (
         <>
             <CustomHeader />
-            <div className={ styles.topShadow }></div>
+            { <div className={ styles.topShadow }></div> }
             <Outlet />
             <CustomFooter />
         </>
