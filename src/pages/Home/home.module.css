@@ -1,4 +1,24 @@
 .Home {
-  background: url("../../assets/backgrounds/posterBg.webp") no-repeat center
-    center / contain;
+  box-sizing: border-box;
+  width: 100vw;
+}
+
+.heroContainer {
+  box-sizing: content-box;
+  padding-top: 8rem 20px 4rem;
+  margin: 0 auto;
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+}
+
+.hero {
+  width: 90%;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.heroContent {
+  display: flex;
+  justify-content: space-between;
 }

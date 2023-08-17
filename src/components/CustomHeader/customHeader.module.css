@@ -6,12 +6,13 @@
   max-width: 1240px;
   padding: 1rem 20px;
   margin: auto;
+  z-index: 10;
   position: fixed;
   width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  top: 2rem;
+  top: 2.5rem;
 }
 
 .mobileMenu {
@@ -77,7 +78,7 @@
 .search input {
   background: rgb(var(--primaryText));
   outline: none;
-  padding: 3px 10px;
+  padding: 3px 30px 3px 10px;
   border: none;
   border-radius: 20px;
   color: rgb(var(--bg));

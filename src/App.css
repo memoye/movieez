@@ -1,5 +1,10 @@
 .App {
   background: rgb(var(--bg));
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  justify-content: space-between;
+  position: relative;
 }
 
 .active {

@@ -1,0 +1,27 @@
+.footer {
+  background: #0d0b02;
+  font-family: var(--secondary-font);
+  color: white;
+  align-self: end;
+  width: 100vw;
+}
+
+.footerContent {
+  padding: 0 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerText span {
+  margin-left: 5px;
+  margin-top: 4px;
+}

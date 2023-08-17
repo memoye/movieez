@@ -1,0 +1,7 @@
+.topShadow {
+  box-shadow: 0px 112px 127px -26px black inset;
+  height: 100px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
