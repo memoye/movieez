@@ -1,3 +1,5 @@
+import styles from './customButton.module.css'
+
 const CustomButton = ({ label, handleClick, filled, icon }) => {
     return (
         <button
@@ -6,10 +8,10 @@ const CustomButton = ({ label, handleClick, filled, icon }) => {
                 handleClick()
             } }>
 
-            <span
+            { icon && <span
                 className={ styles.btnIcon }>
-                { icon && icon }
-            </span>
+                { icon }
+            </span> }
 
             { label }
         </button>

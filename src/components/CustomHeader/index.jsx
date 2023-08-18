@@ -21,7 +21,6 @@ const CustomHeader = () => {
     }
 
     useEffect(() => {
-        // console.log('nav')
         window.addEventListener('scroll', applyBg)
     }, [])
 

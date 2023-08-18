@@ -22,7 +22,8 @@
 
 .addBg {
   transition: 300ms ease all;
-  background: rgb(var(--bg));
+  background: #0d0b02;
+  /* background: rgb(var(--bg)); */
 }
 
 .fixColor {
