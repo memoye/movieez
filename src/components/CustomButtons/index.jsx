@@ -5,13 +5,15 @@ const CustomButton = ({ label, handleClick, filled, icon }) => {
         <button
             className={ `${styles.customButton} ${filled && styles.fill}` }
             onClick={ () => {
-                handleClick()
+                handleClick('working yes')
             } }>
 
-            { icon && <span
-                className={ styles.btnIcon }>
-                { icon }
-            </span> }
+            {
+                icon && <span
+                    className={ styles.btnIcon }>
+                    { icon }
+                </span>
+            }
 
             { label }
         </button>

@@ -1,0 +1,12 @@
+.customButton {
+  display: flex;
+  place-items: center;
+  padding: 0.25em 1em;
+  border-radius: 5px;
+  font-weight: 700;
+}
+.btnIcon {
+  display: grid;
+  font-size: 2em;
+  place-items: center;
+}
