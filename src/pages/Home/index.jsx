@@ -3,7 +3,7 @@ import poster from '../../assets/backgrounds/posterBg.webp';
 import spiderman from '../../assets/spiderman.jpg'
 import { CustomButton } from '../../components';
 import { BsPlay, BsStar } from 'react-icons/bs'
-import { google, fb, netflix, ms, spotify, yt } from '../../assets'
+import { google, fb, netflix, ms, spotify, yt, SignUp } from '../../assets'
 
 const Home = () => {
     return (
@@ -103,6 +103,25 @@ const Home = () => {
                         <img src={ fb } alt={ 'facebook' } />
                         <img src={ netflix } alt={ 'netflix' } />
                     </div>
+                </div>
+            </section>
+
+            <section className={ styles.signupSection }>
+                <div className={ styles.signupContent }>
+                    <article className={ styles.signUpText }>
+                        <h1 className={ styles.signUpTitle }>{ "Sign Up!" }</h1>
+                        <p className={ styles.signUpDesc }>Unleash your inner movie buff! Get access to a huge selection of <span style={ { color: 'rgb(var(--theme-primary))' } }>Movies</span> and <span style={ { color: 'rgb(var(--theme-primary))' } }>Series</span> right at your fingertips! Get all of your favorite shows <u>organized</u>,
+                            all in one place!</p>
+                        <div className={ styles.signupBtn }>
+                            <CustomButton
+                                filled={ true }
+                                label={ "SignUp" }
+                                icon={ <SignUp /> }
+                                handleClick={ () => { console.log('SignUp!') } }
+                            />
+                        </div>
+                    </article>
+                    <div className={ styles.signupSide }></div>
                 </div>
             </section>
         </main>
