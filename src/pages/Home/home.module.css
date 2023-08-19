@@ -1,6 +1,16 @@
-.Home {
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.home {
   box-sizing: border-box;
-  width: 100vw;
+  /* width: 100vw; */
+  /* transform: translateX(-100%) !important; */
 }
 
 .heroContainer {
@@ -8,7 +18,8 @@
     0px 133px 120px 0px #0d0b02 inset;
   box-sizing: content-box;
   margin: 0 auto;
-  min-height: 90vh;
+  height: 600px;
+  max-height: 90vh;
   display: grid;
   place-items: center;
   padding-bottom: 1rem;
@@ -19,7 +30,7 @@
   max-width: 1224px;
   margin: auto;
   margin-top: 7rem;
-  align-self: end;
+  /* align-self: end; */
 }
 
 .heroContent {
@@ -27,19 +38,12 @@
   justify-content: space-between;
   gap: 2em;
   padding: 0 2em;
-  border: 1px solid blue;
   align-items: center;
 }
 
 .heroText {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 2px solid green;
-
-  & * {
-    border: 1px solid yellow;
-  }
+  display: grid;
+  width: 60%;
 }
 
 .heroTitle {
@@ -53,11 +57,14 @@
   font-size: 1rem;
   width: 80%;
   font-weight: 300;
+  max-width: 640px;
+  line-height: 1.5;
+  margin-top: -2rem;
 }
 
 .heroImg {
   width: 20vw;
-  min-width: 280px;
+  min-width: 250px;
   height: fit-content;
   overflow: hidden;
   display: grid;
@@ -67,4 +74,129 @@
 
 .heroImg img {
   width: 100%;
+}
+
+.heroCTA {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.meta {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.ratingIcon {
+  font-size: 1.25rem;
+  color: rgb(var(--theme-primary));
+  filter: brightness(150%);
+  margin-right: 5px;
+}
+
+.affiliates {
+  padding: 5rem 0;
+  display: grid;
+}
+
+.companies {
+  place-items: center;
+  /* height: 50vh; */
+  width: 100vw;
+  display: flex;
+}
+
+.companies + .companies {
+  margin-top: 5rem;
+}
+
+.companyLogos {
+  white-space: nowrap;
+  animation: 35s slide infinite linear;
+}
+
+.reverse {
+  animation-direction: reverse;
+}
+
+.companyLogos img {
+  margin: 0 20px;
+  height: 30px;
+}
+
+.companyLogos img:hover {
+  transform: scale(120%);
+}
+
+@media screen and (max-width: 920px) {
+  .hero {
+    width: 100%;
+  }
+  .heroImg {
+    /* margin-bottom: -5rem; */
+    transform: translateY(10%);
+  }
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+  .heroDesc {
+    margin-top: -5px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .heroContent {
+    flex-direction: column;
+    padding: 1em;
+    position: relative;
+    text-align: center;
+    transform: translateY(-10%);
+  }
+  .heroText {
+    padding: 0;
+    width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between !important;
+    align-items: center;
+    height: 42rem !important;
+    padding: 0 !important;
+  }
+
+  .heroTitle {
+    transform: translateY(-20%);
+    font-size: 6.5vmin;
+  }
+
+  .heroDesc {
+    display: none;
+  }
+
+  .meta {
+    display: flex;
+    place-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+    transform: translateY(-25px);
+    min-width: max-content;
+  }
+
+  .heroCTA {
+    display: grid;
+    gap: 10px;
+  }
+
+  .meta,
+  .heroCTA {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .heroImg {
+    transform: translateY(30%);
+    position: absolute;
+  }
 }

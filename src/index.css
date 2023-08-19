@@ -29,6 +29,7 @@ body {
   font-family: var(--primary-font);
   color: rgb(var(--primaryText));
   background: rgb(var(--bg));
+  /* margin: auto; */
 }
 
 a {

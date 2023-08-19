@@ -5,6 +5,7 @@
   display: grid;
   justify-content: space-between;
   position: relative;
+  overflow: hidden;
 }
 
 .active {

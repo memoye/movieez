@@ -3,7 +3,21 @@ import logo from './logo.svg';
 import tableBg from './backgrounds/tableDesign.svg';
 import pic from './backgrounds/profilePic.png';
 import menuDots from './icons/navOpener.svg';
+import google from './icons/google.svg'
+import fb from './icons/fb.svg';
+import netflix from './icons/logos_netflix.svg';
+import ms from './icons/microsoft.svg';
+import spotify from './icons/spotify.svg';
+import yt from './icons/yt.svg';
+//...
+import { HiOutlineChevronDown as DownIcon } from 'react-icons/hi';
+import { BiSearchAlt as SearchIcon } from 'react-icons/bi';
+import { RiCloseFill as CloseIcon } from 'react-icons/ri'
+import { TiThMenu as MenuIcon } from 'react-icons/ti'
+
 
 export {
-    logo, heart, tableBg, pic, menuDots
+    logo, heart, tableBg, pic, menuDots,
+    DownIcon, SearchIcon, CloseIcon, MenuIcon,
+    google, fb, netflix, ms, spotify, yt
 }
