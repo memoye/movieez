@@ -19,3 +19,18 @@
   color: rgb(var(--bg)) !important;
   font-weight: 700 !important;
 }
+
+/* temporary fix */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  width: 90%;
+  margin: auto;
+}
+
+/* img {
+  width: 100%;
+} */

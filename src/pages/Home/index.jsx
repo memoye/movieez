@@ -1,11 +1,75 @@
+import { useState } from 'react';
 import styles from './home.module.css'
 import poster from '../../assets/backgrounds/posterBg.webp';
 import spiderman from '../../assets/spiderman.jpg'
-import { CustomButton } from '../../components';
-import { BsPlay, BsStar } from 'react-icons/bs'
-import { google, fb, netflix, ms, spotify, yt, SignUp } from '../../assets'
+import { CustomButton, Featured, MovieCard } from '../../components';
+import { BsArrowRight, BsPlay, BsStar } from 'react-icons/bs'
+import { google, fb, netflix, ms, spotify, yt, SignUp, loadingImg } from '../../assets'
+
 
 const Home = () => {
+
+    const [isLoading, setIsLoading] = useState(false)
+
+    const continueWatching = {
+        title: "Continue watching",
+        movies: [
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman }
+        ],
+        preview: 5
+    }
+
+    const popularMovies = {
+        title: "Popular movies",
+        movies: [
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman }
+        ],
+        preview: 3
+    }
+
+    const reccomendation = {
+        title: "Since you enjoy ...",
+        movies: [
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman },
+            { poster: spiderman }
+        ],
+        preview: 5
+    }
+
+    if (isLoading) {
+        return (
+            <div className={ styles.loading }>
+                <div className={ styles.loadingImg }></div>
+            </div>
+        )
+    }
+
     return (
         <main className={ styles.home }>
 
@@ -46,13 +110,17 @@ const Home = () => {
                         </article>
 
                         <div className={ styles.heroImg }>
-                            <img src={ spiderman } alt="movie poster" />
+                            <MovieCard
+                                poster={ spiderman }
+                            />
+                            {/* <img src={ spiderman } alt="movie poster" /> */ }
                         </div>
                     </div>
 
                 </section>
 
             </section>
+
             <section className={ styles.affiliates }>
                 <h3 className={ styles.affiliatesTitle }>{ "Trusted by companies around the world!" }</h3>
                 <div className={ styles.companies }>
@@ -124,6 +192,53 @@ const Home = () => {
                     <div className={ styles.signupSide }></div>
                 </div>
             </section>
+
+            <section className={ `${styles.featured}` }>
+                <Featured
+                    section={ continueWatching }
+                />
+            </section>
+
+            <section className={ styles.featured }>
+                <div className={ styles.featuredTitle }>
+                    <h3> This week's series </h3>
+                    <button className={ styles.moreBtn }>More <BsArrowRight className={ styles.rightArrow } /></button>
+                </div>
+
+                <div className={ styles.weekSeries }>
+
+                    <MovieCard
+                        poster={ poster }
+                        customStyles={ styles.movie }
+                    />
+
+                    <div className={ styles.seriesInfo }>
+                        <div className={ styles.seriesInfoText }>
+                            <h4 className={ styles.seriesTitle }>{ "Lorem, ipsum dolor sit amet." }</h4>
+                            <p className={ styles.seriesDesc }>{ "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ipsa rem nemo in deleniti enim consectetur, ipsum nihil iure modi doloremque consequatur. Eligendi dicta non repellat asperiores quia nam numquam minima tempore reprehenderit cupiditate? Officiis nemo velit voluptate earum harum quia labore repellendus? Incidunt cum earum dolor! Natus, numquam voluptatum!" }</p>
+                        </div>
+                        <CustomButton
+                            label={ "Watch now" }
+                            filled={ true }
+                            customStyle={ styles.hideOnMobile }
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section className={ `${styles.featured} ${styles.popularMovies}` }>
+                <Featured
+                    section={ popularMovies }
+                />
+            </section>
+
+            <section className={ `${styles.featured}` }>
+                <Featured
+                    section={ reccomendation }
+                />
+            </section>
+
+
         </main>
     )
 }

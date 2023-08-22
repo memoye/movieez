@@ -6,12 +6,7 @@ const Trending = () => {
 
     return (
         <div className={ styles.Trending }>
-            <CustomButton
-                label={ 'Welcome' }
-                handleClick={ () => { console.log('from Trending') } }
-                filled={ true }
-
-            />
+            Trending
         </div>
     )
 }

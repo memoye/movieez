@@ -1,9 +1,9 @@
 import styles from './customButton.module.css'
 
-const CustomButton = ({ label, handleClick, filled, icon }) => {
+const CustomButton = ({ label, handleClick, filled, icon, customStyle }) => {
     return (
         <button
-            className={ `${styles.customButton} ${filled && styles.filled}` }
+            className={ `${styles.customButton} ${filled && styles.filled} ${customStyle}` }
             onClick={ () => {
                 handleClick('working yes')
             } }>

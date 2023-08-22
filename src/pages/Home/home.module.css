@@ -7,10 +7,67 @@
   }
 }
 
+@keyframes pulseX {
+  to {
+    transform: translate(30%);
+  }
+}
+
+.loading {
+  position: relative;
+  inset: 0;
+  background-color: #383205ca;
+  height: 100vh;
+  width: 100vw;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+}
+
+.loadingmg {
+  width: 50%;
+}
+
 .home {
   box-sizing: border-box;
   /* width: 100vw; */
   /* transform: translateX(-100%) !important; */
+}
+
+.featured {
+  /* width: 90%; */
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2rem 4rem;
+  /* margin: 2rem auto; */
+}
+
+.featuredTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  line-height: 0;
+  min-width: max-content;
+}
+
+.moreBtn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.moreBtn:hover {
+  color: rgb(var(--theme-primary));
+}
+
+.moreBtn:hover .rightArrow {
+  transform: translateX(10%);
+}
+
+.popularMovies {
+  background-color: #0d0b02;
 }
 
 .heroContainer {
@@ -168,6 +225,39 @@
     contain;
 }
 
+.weekSeries {
+  display: flex;
+  margin: auto;
+  padding: 1rem 2rem;
+}
+
+.seriesInfo {
+  background: #29261c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 2rem;
+  max-width: 50%;
+}
+
+.seriesInfoText {
+  /*  */
+}
+
+.seriesTitle {
+  width: 100%;
+}
+
+.seriesDesc {
+  font-size: 1rem;
+  font-weight: 100;
+  color: #8a806b;
+}
+
+.movie {
+  border-radius: 0 !important;
+}
+
 @media screen and (max-width: 920px) {
   .hero {
     width: 100%;
@@ -188,6 +278,11 @@
     padding-bottom: 2em;
   }
 
+  .signUpText {
+    width: 80%;
+    margin: auto;
+  }
+
   .signupSide {
     display: none;
   }
@@ -195,6 +290,32 @@
   .signupBtn {
     width: fit-content;
     margin: auto;
+  }
+
+  .rightArrow {
+    animation: pulseX 500ms ease-out infinite;
+  }
+
+  .weekSeries {
+    /*  */
+    /* display: block; */
+    position: relative;
+  }
+
+  .movie {
+    /*  */
+  }
+
+  .seriesInfo {
+    max-width: unset !important;
+    position: absolute;
+    inset: 1rem 1rem;
+    background: #29261c;
+    text-align: center;
+  }
+
+  .hideOnMobile {
+    display: none !important;
   }
 }
 
@@ -206,6 +327,7 @@
     text-align: center;
     transform: translateY(-5%);
   }
+
   .heroText {
     padding: 0;
     width: 100%;
@@ -253,5 +375,13 @@
 
   .affiliates {
     margin-top: 4rem;
+  }
+
+  .seriesInfo {
+    inset: 80% 2rem -10% 2rem;
+  }
+
+  .seriesDesc {
+    display: none;
   }
 }

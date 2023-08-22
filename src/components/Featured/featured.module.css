@@ -1,0 +1,49 @@
+.featuredTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  line-height: 0;
+  /* width: max-content; */
+
+  min-width: max-content !important;
+}
+
+.moreBtn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.moreBtn:hover {
+  color: rgb(var(--theme-primary));
+}
+
+.moreBtn:hover .rightArrow {
+  transform: translateX(10%);
+}
+
+.movieCardContainer {
+  padding: 1em 2.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-items: center;
+  gap: 1em;
+}
+
+@media screen and (max-width: 920px) {
+  .rightArrow {
+    animation: pulseX 500ms ease-out infinite;
+  }
+}
+
+.movieCardContainer .movieCard:last-child {
+  display: none;
+}
+
+@keyframes pulseX {
+  to {
+    transform: translate(30%);
+  }
+}

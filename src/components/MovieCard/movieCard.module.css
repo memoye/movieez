@@ -1,0 +1,38 @@
+.movieCard {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.poster {
+  display: grid;
+  place-items: center;
+  /* do something here later... */
+}
+
+.poster img {
+  width: 100%;
+}
+
+.cardOverlay {
+  opacity: 0;
+  position: absolute;
+  inset: 40% 0;
+  transition: 200ms ease-out all;
+  display: grid;
+  z-index: 10;
+  align-items: center;
+  /* place-items: center; */
+}
+
+.movieCard:hover .cardOverlay {
+  background: rgba(12, 12, 22, 0.3);
+  opacity: 1;
+  animation: open 200ms ease-out 50ms 1 forwards;
+}
+
+@keyframes open {
+  to {
+    inset: 0;
+  }
+}
