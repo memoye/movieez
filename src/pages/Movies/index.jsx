@@ -1,10 +1,11 @@
-import styles from './shows.module.css'
 import { useEffect, useState } from 'react';
 import { CustomButton, Featured, MovieCard } from '../../components';
-import { filterBtns, dummyMovies, sampleMovie, showCategories } from '../../utils'
+import styles from './movies.module.css';
+import { filterBtns, dummyMovies, sampleMovie } from '../../utils'
 
-const Shows = () => {
-    const [filters, setFilters] = useState(showCategories)
+
+const Movies = () => {
+    const [filters, setFilters] = useState(filterBtns)
     const [selected, setSelected] = useState([])
 
     //
@@ -20,21 +21,13 @@ const Shows = () => {
         setFilters(updatedFilters);
     };
 
-
-    const popularMovies = {
-        title: "Popular movies",
-        movies: dummyMovies,
-        preview: 3
-    }
-
-
     useEffect(() => {
         setSelected(dummyMovies)
     })
 
 
     return (
-        <main className={ styles.shows }>
+        <main className={ styles.movies }>
             {/* <div className={ styles.filterBtnsContainer }>
                 {
                     filters.map((btn) => <CustomButton
@@ -48,23 +41,11 @@ const Shows = () => {
                     />)
                 }
             </div> */}
-
-            {/* <section className={ styles.showsGrid }>
-                {
-                    selected.map((movie, index) =>
-                        <MovieCard
-                            // poster={ true }
-                            key={ index }
-                            { ...sampleMovie }
-                        />)
-                }
-
-            </section> */}
-            <section className={ styles.showGroup }>
+            <section className={ styles.moviesGroup }>
                 <Featured
                     section={
                         {
-                            title: 'Airing Today',
+                            title: 'Now Playing',
                             movies: dummyMovies,
                             preview: 3,
                             // poster: false
@@ -73,54 +54,40 @@ const Shows = () => {
                 />
             </section>
 
-            <section className={ styles.showGroup }>
-                <Featured
-                    section={
-                        {
-                            title: 'On the Air',
-                            movies: dummyMovies,
-                            preview: 3,
-                            // poster: false
-                        }
-                    }
-                />
-            </section>
-
-
-            <section className={ styles.showGroup }>
+            <section className={ styles.moviesGroup }>
                 <Featured
                     section={
                         {
                             title: 'Popular',
                             movies: dummyMovies,
-                            preview: 3,
-                            // poster: false
+                            preview: 6,
+                            poster: true
                         }
                     }
                 />
             </section>
 
-            <section className={ styles.showGroup }>
-                <Featured
-                    section={
-                        {
-                            title: 'Popular',
-                            movies: dummyMovies,
-                            preview: 3,
-                            // poster: false
-                        }
-                    }
-                />
-            </section>
-
-            <section className={ styles.showGroup }>
+            <section className={ styles.moviesGroup }>
                 <Featured
                     section={
                         {
                             title: 'Top Rated',
                             movies: dummyMovies,
-                            preview: 3,
-                            // poster: false
+                            preview: 6,
+                            poster: true
+                        }
+                    }
+                />
+            </section>
+
+            <section className={ styles.moviesGroup }>
+                <Featured
+                    section={
+                        {
+                            title: 'Upcoming',
+                            movies: dummyMovies,
+                            preview: 6,
+                            poster: true
                         }
                     }
                 />
@@ -141,4 +108,4 @@ const Shows = () => {
         </main>
     )
 }
-export default Shows
+export default Movies

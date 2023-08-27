@@ -1,74 +1,38 @@
 import { useState } from 'react';
 import styles from './home.module.css'
 import poster from '../../assets/backgrounds/posterBg.webp';
-import spiderman from '../../assets/spiderman.jpg'
 import { CustomButton, Featured, MovieCard } from '../../components';
 import { BsArrowRight, BsPlay, BsStar } from 'react-icons/bs'
 import { google, fb, netflix, ms, spotify, yt, SignUp, loadingImg } from '../../assets'
-
+import { BiFastForward, BiLoader } from 'react-icons/bi';
+import { dummyMovies, sampleMovie, base_img_url, formatDate } from '../../utils';
+import spiderman from '../../assets/spiderman.jpg'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
-    const [isLoading, setIsLoading] = useState(false)
-
     const continueWatching = {
         title: "Continue watching",
-        movies: [
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman }
-        ],
-        preview: 5
+        movies: dummyMovies,
+        preview: 5,
+        poster: true
     }
 
     const popularMovies = {
         title: "Popular movies",
-        movies: [
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman }
-        ],
-        preview: 3
+        movies: dummyMovies,
+        preview: 3,
+        poster: true
     }
 
-    const reccomendation = {
+    const recomendation = {
         title: "Since you enjoy ...",
-        movies: [
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman },
-            { poster: spiderman }
-        ],
-        preview: 5
+        movies: dummyMovies,
+        preview: 5,
+        poster: true
     }
 
-    if (isLoading) {
-        return (
-            <div className={ styles.loading }>
-                <div className={ styles.loadingImg }></div>
-            </div>
-        )
-    }
+    // replace all sampleMovie to appropriate state
 
     return (
         <main className={ styles.home }>
@@ -78,7 +42,7 @@ const Home = () => {
                     background: `linear-gradient(to right,
                         rgba(0, 0, 0, 0.6), 
                         rgba(0, 0, 0, 0.1)
-                      ), url(${poster}) no-repeat top center / cover`
+                      ), url(${base_img_url + sampleMovie.backdrop_path}) no-repeat top center / cover`
                 } }
                 className={ styles.heroContainer }>
 
@@ -86,10 +50,26 @@ const Home = () => {
                     <div className={ styles.heroContent }>
                         <article className={ styles.heroText }>
                             <div>
-                                <h1 className={ styles.heroTitle }>{ 'Spider-man: Across the spider-verse' }</h1>
-                                <p className={ styles.heroDesc }> After reuniting with Gwen Stacy, Brooklyn's full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse's very existence...</p>
+                                <h1 className={ styles.heroTitle }>{ sampleMovie.original_title }</h1>
+                                <p className={ styles.heroDesc }>{ sampleMovie.overview }</p>
                                 <div className={ styles.meta }>
-                                    <BsStar className={ styles.ratingIcon } /> { '7.8' } Rating | { "Sci-Fi, Adventure, Action" } | { '2023' }
+
+                                    <div className={ styles.genres }>
+                                        {
+                                            sampleMovie.genres.map(genre => (<CustomButton
+                                                key={ genre.id }
+                                                label={ genre.name }
+                                                customStyle={ styles.genrebtn }
+                                            />))
+                                        }
+                                    </div>
+
+                                    <p style={ { display: 'flex', placeItems: 'center' } }>
+                                        { sampleMovie.vote_average } Rating
+                                    </p>
+
+                                    <p className={ styles.date }><span className={ styles.label }>Release date:</span> { formatDate(sampleMovie.release_date) }</p>
+
                                 </div>
                             </div>
 
@@ -110,69 +90,29 @@ const Home = () => {
                         </article>
 
                         <div className={ styles.heroImg }>
-                            <MovieCard
-                                poster={ spiderman }
-                            />
-                            {/* <img src={ spiderman } alt="movie poster" /> */ }
+                            <img src={ `${base_img_url + sampleMovie.poster_path}` } alt={ sampleMovie.original_title } />
                         </div>
                     </div>
 
                 </section>
 
             </section>
-
             <section className={ styles.affiliates }>
-                <h3 className={ styles.affiliatesTitle }>{ "Trusted by companies around the world!" }</h3>
-                <div className={ styles.companies }>
-                    <div className={ styles.companyLogos }>
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
-                        <img src={ spotify } alt={ 'spotify' } />
-                        <img src={ ms } alt={ 'microsoft' } />
-                        <img src={ yt } alt={ 'youtube' } />
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
-                    </div>
-                    <div className={ styles.companyLogos }>
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
-                        <img src={ spotify } alt={ 'spotify' } />
-                        <img src={ ms } alt={ 'microsoft' } />
-                        <img src={ yt } alt={ 'youtube' } />
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
-                    </div>
-                </div>
+                <h3 className={ styles.affiliatesTitle }>{ "Production Companies" }</h3>
 
                 <div className={ styles.companies }>
-                    <div className={ `${styles.companyLogos} ${styles.reverse}` }>
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
-                        <img src={ spotify } alt={ 'spotify' } />
-                        <img src={ ms } alt={ 'microsoft' } />
-                        <img src={ yt } alt={ 'youtube' } />
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
-                    </div>
-                    <div className={ `${styles.companyLogos} ${styles.reverse}` }>
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
-                        <img src={ spotify } alt={ 'spotify' } />
-                        <img src={ ms } alt={ 'microsoft' } />
-                        <img src={ yt } alt={ 'youtube' } />
-                        <img src={ google } alt={ 'google' } />
-                        <img src={ fb } alt={ 'facebook' } />
-                        <img src={ netflix } alt={ 'netflix' } />
+                    <div className={ `${styles.companyLogos}` }>
+                        {
+                            sampleMovie.production_companies.map((coy, index) => {
+                                return (
+                                    <img key={ coy.id } title={ coy.name } src={ `${base_img_url}${coy.logo_path}` } alt={ coy.name } />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </section>
+
 
             <section className={ styles.signupSection }>
                 <div className={ styles.signupContent }>
@@ -208,7 +148,8 @@ const Home = () => {
                 <div className={ styles.weekSeries }>
 
                     <MovieCard
-                        poster={ poster }
+                        { ...sampleMovie }
+                        poster={ false }
                         customStyles={ styles.movie }
                     />
 
@@ -220,7 +161,7 @@ const Home = () => {
                         <CustomButton
                             label={ "Watch now" }
                             filled={ true }
-                            customStyle={ styles.hideOnMobile }
+                            customStyle={ styles.center }
                         />
                     </div>
                 </div>
@@ -234,10 +175,9 @@ const Home = () => {
 
             <section className={ `${styles.featured}` }>
                 <Featured
-                    section={ reccomendation }
+                    section={ recomendation }
                 />
             </section>
-
 
         </main>
     )

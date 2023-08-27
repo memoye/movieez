@@ -1,0 +1,12 @@
+.favorites {
+  margin: auto;
+  margin-top: 5rem;
+  min-width: 80vw;
+  padding-bottom: 2em;
+}
+
+.mainTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

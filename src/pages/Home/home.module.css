@@ -13,21 +13,6 @@
   }
 }
 
-.loading {
-  position: relative;
-  inset: 0;
-  background-color: #383205ca;
-  height: 100vh;
-  width: 100vw;
-  z-index: 20;
-  display: grid;
-  place-items: center;
-}
-
-.loadingmg {
-  width: 50%;
-}
-
 .home {
   box-sizing: border-box;
   /* width: 100vw; */
@@ -40,6 +25,23 @@
   width: 100%;
   padding: 2rem 4rem;
   /* margin: 2rem auto; */
+}
+
+.genres {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: start;
+  padding: 5px 0;
+  gap: 10px;
+}
+
+.genrebtn {
+  border: none !important;
+  font-weight: 400;
+  min-width: unset !important;
+  border-radius: 20px;
+  font-size: 10px;
 }
 
 .featuredTitle {
@@ -127,6 +129,14 @@
   display: grid;
   place-items: center;
   border-radius: 10px;
+  box-shadow: 5px 5px 15px rgb(var(--theme-primary), 0.2);
+  animation: floatin 5s linear infinite alternate;
+}
+
+@keyframes floatin {
+  to {
+    transform: translateY(5%) scale(105%);
+  }
 }
 
 .heroImg img {
@@ -142,7 +152,7 @@
 .meta {
   margin-top: -0.5rem;
   margin-bottom: 1rem;
-  display: flex;
+  display: grid;
   align-items: center;
   font-weight: 600;
 }
@@ -178,21 +188,21 @@
 }
 
 .companyLogos {
-  white-space: nowrap;
-  animation: 50s slide infinite linear;
+  margin: auto;
 }
 
-.reverse {
+/* .reverse {
   animation-direction: reverse;
-}
+} */
 
 .companyLogos img {
   margin: 0 20px;
-  height: 30px;
+  height: 5rem;
+  filter: invert(1);
 }
 
 .companyLogos img:hover {
-  transform: scale(120%);
+  transform: scale(110%);
 }
 
 .signupSection {
@@ -246,6 +256,7 @@
 
 .seriesTitle {
   width: 100%;
+  font-size: 1.5rem;
 }
 
 .seriesDesc {
@@ -262,6 +273,12 @@
   .hero {
     width: 100%;
   }
+
+  .meta {
+    flex-direction: column;
+    align-items: start;
+  }
+
   .heroImg {
     /* margin-bottom: -5rem; */
     transform: translateY(10%);
@@ -297,9 +314,7 @@
   }
 
   .weekSeries {
-    /*  */
-    /* display: block; */
-    position: relative;
+    flex-direction: column;
   }
 
   .movie {
@@ -308,14 +323,16 @@
 
   .seriesInfo {
     max-width: unset !important;
-    position: absolute;
-    inset: 1rem 1rem;
-    background: #29261c;
+    padding: 1rem;
     text-align: center;
   }
 
-  .hideOnMobile {
-    display: none !important;
+  .seriesDesc {
+    /* text-align: justify; */
+  }
+
+  .center {
+    margin: auto;
   }
 }
 
@@ -342,6 +359,7 @@
   .heroTitle {
     transform: translateY(-20%);
     font-size: 6.5vmin;
+    width: fit-content;
   }
 
   .heroDesc {
@@ -349,12 +367,36 @@
   }
 
   .meta {
-    display: flex;
+    display: grid;
     place-content: center;
     text-align: center;
     font-size: 0.9rem;
     transform: translateY(-25px);
     min-width: max-content;
+  }
+
+  .genres {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: start;
+    padding: 5px 0;
+    gap: 10px;
+  }
+
+  .genrebtn {
+    border: none !important;
+    font-weight: 400;
+    min-width: unset !important;
+    border-radius: 20px;
+    font-size: 10px;
+  }
+  .date {
+    font-size: 0.75em;
+  }
+
+  .label {
+    font-weight: 700;
   }
 
   .heroCTA {
@@ -365,23 +407,16 @@
   .meta,
   .heroCTA {
     margin: 0 auto;
-    text-align: center;
+    text-align: center !important;
   }
 
   .heroImg {
     transform: translateY(30%);
     position: absolute;
+    animation: none;
   }
 
   .affiliates {
     margin-top: 4rem;
-  }
-
-  .seriesInfo {
-    inset: 80% 2rem -10% 2rem;
-  }
-
-  .seriesDesc {
-    display: none;
   }
 }

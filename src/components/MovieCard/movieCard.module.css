@@ -7,32 +7,209 @@
 .poster {
   display: grid;
   place-items: center;
+  transition: 300ms filter;
   /* do something here later... */
+  filter: brightness(70%);
+  overflow: hidden;
+}
+
+.posterStyle {
+  animation: none !important;
+}
+
+.movieCard:hover .poster {
+  filter: brightness(100%);
 }
 
 .poster img {
   width: 100%;
+  animation: slowZoom 100s linear infinite alternate;
+}
+
+@keyframes slowZoom {
+  50% {
+    transform: scale(140%) translateX(10%);
+  }
+
+  35% {
+    transform: scale(150%) translate(-10%, 15%);
+  }
+  65% {
+    transform: scale(175%) translate(-10%, 0);
+  }
+
+  95% {
+    transform: scale(190%) translate(0);
+  }
 }
 
 .cardOverlay {
-  opacity: 0;
-  position: absolute;
-  inset: 40% 0;
-  transition: 200ms ease-out all;
-  display: grid;
-  z-index: 10;
-  align-items: center;
-  /* place-items: center; */
-}
-
-.movieCard:hover .cardOverlay {
-  background: rgba(12, 12, 22, 0.3);
   opacity: 1;
-  animation: open 200ms ease-out 50ms 1 forwards;
+  position: absolute;
+  inset: 0;
+  transition: 200ms ease-out all;
+  z-index: 5;
+  background: linear-gradient(
+    to bottom,
+    #000000b3 0%,
+    #ffc40000 45%,
+    #00000074 65%,
+    #000000 100%
+  ) !important;
 }
 
-@keyframes open {
+.rating {
+  padding: 0.5em;
+  font-size: 60%;
+  font-weight: 700;
+  display: flex;
+  place-items: center;
+  gap: 5px;
+  top: 20px;
+  left: 10px;
+  position: absolute;
+  background: rgb(var(--theme-primary));
+  color: rgb(var(--bg));
+}
+
+.buttonsContainer {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: end;
+  gap: 2px;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  justify-content: start;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+  z-index: 10;
+}
+
+.movieDetails {
+  background: linear-gradient(
+    to bottom,
+    rgba(254, 192, 192, 0),
+    rgba(0, 0, 0, 0.848),
+    black
+  );
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2rem;
+  padding: 0 1em;
+  overflow: hidden;
+  transition: 300ms bottom ease-in;
+}
+
+.movieCard:hover .movieDetails {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.304),
+    black,
+    rgba(0, 0, 0, 0.948)
+  );
+  bottom: 0;
+}
+
+.movieTitle {
+  all: unset;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0 !important;
+}
+
+.genres {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: start;
+  padding: 5px 0;
+  gap: 10px;
+}
+
+.genrebtn {
+  border: none;
+  font-weight: 400;
+  min-width: unset;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.minorDeets {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgb(var(--theme-primary));
+}
+
+p.minorDeets {
+  align-self: end;
+}
+
+.date {
+  font-size: 0.75em;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.openHomepage {
+  all: unset;
+  padding: 12px;
+  display: flex;
+  place-items: center;
+}
+
+.overview {
+  font-size: 0.75rem;
+  padding: 0 10px;
+}
+
+.hoverBtn:hover {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.heart {
+  all: unset;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  background-image: url("../../assets/icons/heart_animation.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 2900%;
+}
+
+.fav {
+  background-position: right;
+  animation: heart-burst 800ms steps(28) 1;
+}
+
+@keyframes heart-burst {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: left;
+  }
   to {
-    inset: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-position: right;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cardOverlay {
+    opacity: 1;
+    background: transparent;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .genres {
+    display: none;
   }
 }

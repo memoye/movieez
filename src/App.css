@@ -31,6 +31,39 @@ h6 {
   margin: auto;
 }
 
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  position: relative;
+  inset: 0;
+  background: url("./assets/backgrounds/vid-effect.gif") no-repeat top center /
+    cover;
+  height: 100vh;
+  width: 100vw;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  mix-blend-mode: exclusion;
+}
+
+.loadingImg {
+  box-sizing: content-box;
+
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 50%;
+  font-size: 15vmin;
+  text-align: end;
+  display: grid;
+  place-items: center;
+}
+
+.loader {
+  animation: rotate 1.5s linear infinite;
+}
 /* img {
   width: 100%;
 } */
