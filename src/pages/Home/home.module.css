@@ -129,8 +129,8 @@
   display: grid;
   place-items: center;
   border-radius: 10px;
-  box-shadow: 5px 5px 15px rgb(var(--theme-primary), 0.2);
-  animation: floatin 5s linear infinite alternate;
+  /* box-shadow: 5px 5px 15px rgb(var(--theme-primary), 0.2); */
+  /* animation: floatin 5s linear infinite alternate; */
 }
 
 @keyframes floatin {

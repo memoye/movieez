@@ -37,6 +37,43 @@ a {
   color: rgb(var(--theme-col));
 }
 
+/* modal */
+
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  width: 600px;
+  border-radius: 5px;
+}
+.modal-title {
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #aaa;
+  text-align: center;
+}
+.modal-body {
+  padding: 1rem;
+}
+.modal-footer {
+  border-top: 1px solid #aaa;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-footer button {
+  cursor: pointer;
+}
 /* @media (prefers-color-scheme: light) {
   :root {
     --bg: 217, 217, 217;

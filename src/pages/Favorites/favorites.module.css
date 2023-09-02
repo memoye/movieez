@@ -10,3 +10,31 @@
   align-items: center;
   gap: 10px;
 }
+
+.heartIcon {
+  animation: pulse 0.5s ease infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(110%);
+  }
+}
+
+.msg {
+  width: 100%;
+  height: 40vh;
+  display: grid;
+  place-items: center;
+  font-size: 3vmin;
+  font-style: italic;
+  opacity: 0.2;
+}
+
+.favsGrid {
+  padding: 1em 2.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  place-items: center;
+  gap: 1em;
+}

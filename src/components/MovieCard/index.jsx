@@ -12,9 +12,7 @@ const MovieCard = (props) => {
 
     useEffect(() => {
         // console.log(poster)
-        console.log(props)
-
-
+        // console.log(props)
     }, [])
 
     return (

@@ -1,9 +1,9 @@
-import CustomHeader from './CustomHeader';
+import CustomHeader from './CustomHeader'
 import CustomFooter from "./CustomFooter"
-import HeaderAndFooter from './HeaderAndFooter';
-import CustomButton from './CustomButtons';
-import Featured from './Featured';
-import MovieCard from './MovieCard';
+import HeaderAndFooter from './HeaderAndFooter'
+import CustomButton from './CustomButtons'
+import Featured from './Featured'
+import MovieCard from './MovieCard'
 
 
 export {

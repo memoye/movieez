@@ -1,30 +1,22 @@
 import './App.css'
-import { useEffect, useRef, useState } from 'react'
-import { BiLoader } from 'react-icons/bi'
+import { useEffect, useState } from 'react'
+import { BiCloset, BiLoader } from 'react-icons/bi'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, Movies, Discover, Shows, Favorites } from './pages';
 import { HeaderAndFooter } from './components';
+import Profile from './pages/Profile';
+import { sampleMovie } from './utils';
 // import poster from './assets/backgrounds/posterBg.webp'
-
 
 function App() {
 
-  const [isLoading, setIsLoading] = useState(false)
-  // const blob = useRef()
 
-  // function followMouse(e) {
-  //   const { clientX, clientY } = e;
-  //   console.log(clientX, clientY)
-  //   // blob.style.left=`${clientX}px`;
-  //   // blob.style.top=`${clientY}px`;
-  //   blob.current.animate({
-  //     left: `${clientX}px`,
-  //     top: `${clientY}px`
-  //   }, { duration: 3000, fill: "forwards" })
-  // }
+  const [isLoading, setIsLoading] = useState(false)
+  const [trailerModalOpen, setTrailerModalOpen] = useState(true)
+
 
   useEffect(() => {
-    // window.addEventListener('pointermove', followMouse)
+
   }, [])
 
 
@@ -39,17 +31,17 @@ function App() {
   }
 
   return (
-    <div className="App" >
+    <div className="App">
+
       <Router>
         <Routes>
           <Route element={ <HeaderAndFooter /> }>
             <Route path='/' element={ <Home /> } />
             <Route path='/movies' element={ <Movies /> } />
-            <Route path='/discover' element={ <Discover /> } />
             <Route path='/shows' element={ <Shows /> } />
             <Route path='/favorites' element={ <Favorites /> } />
+            <Route path='/profile' element={ <Profile /> } />
           </Route>
-
         </Routes>
       </Router>
     </div>

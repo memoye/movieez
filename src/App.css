@@ -61,9 +61,16 @@ h6 {
   place-items: center;
 }
 
+/* .hello {
+} */
+
 .loader {
   animation: rotate 1.5s linear infinite;
 }
 /* img {
   width: 100%;
 } */
+
+.closeModal {
+  all: unset;
+}

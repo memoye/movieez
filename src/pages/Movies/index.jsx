@@ -28,7 +28,8 @@ const Movies = () => {
 
     return (
         <main className={ styles.movies }>
-            {/* <div className={ styles.filterBtnsContainer }>
+            {/* 
+            <div className={ styles.filterBtnsContainer }>
                 {
                     filters.map((btn) => <CustomButton
                         key={ btn.id }
@@ -40,7 +41,8 @@ const Movies = () => {
                         } }
                     />)
                 }
-            </div> */}
+            </div> 
+            */}
             <section className={ styles.moviesGroup }>
                 <Featured
                     section={

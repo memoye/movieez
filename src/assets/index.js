@@ -17,6 +17,7 @@ import x from './icons/x.svg';
 import linkedIn from './icons/linkedIn.svg';
 import medium from './icons/medium.svg';
 
+
 //...
 import { HiOutlineChevronDown as DownIcon } from 'react-icons/hi';
 import { BiSearchAlt as SearchIcon } from 'react-icons/bi';

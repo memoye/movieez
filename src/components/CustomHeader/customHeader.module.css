@@ -71,10 +71,61 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+}
+
+.userMenu {
+  all: unset;
+  list-style-type: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 1em;
+  min-width: max-content;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  display: grid;
+  gap: 10px;
+  position: absolute;
+  top: 110%;
+  left: 30px;
+}
+
+.userMenu button {
+  all: unset;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.userMenu li:hover .BiLogOut {
+  scale: 120%;
+  transform: translateX(-10%);
+}
+
+.userMenu li {
+  border-left: 5px solid transparent;
+  padding: 5px;
+  transition: 300ms all ease;
+}
+
+.userMenu li:hover {
+  border-left-color: rgb(var(--theme-primary));
+  background: linear-gradient(
+    to right,
+    rgb(var(--theme-primary), 0.3),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .downArrow:hover {
   margin-top: 0.5rem;
+}
+
+.userMenuOpen {
+  transform: rotate(180deg);
+  margin-top: 0.5rem;
+  transition: 500ms transform;
 }
 
 .profileBtn {
@@ -85,6 +136,11 @@
   aspect-ratio: 1;
   width: 2rem;
   border-radius: 50%;
+}
+
+.profileBtn:hover {
+  transition: 0.15s box-shadow ease-out;
+  box-shadow: 0 0 20px 5px rgb(var(--theme-primary), 0.5);
 }
 
 .search {
@@ -123,7 +179,6 @@
 
 .downArrow {
   font-size: 1.5rem;
-  /* color: rgb(var(--primaryText)); */
   transition: 100ms margin;
 }
 
@@ -135,12 +190,16 @@
   display: none;
 }
 
+.hamburgerMenu {
+  display: none;
+}
+
 @media screen and (max-width: 920px) {
   .nav {
     display: none;
   }
 
-  .hello {
+  .hamburger {
     display: block;
   }
 
@@ -173,6 +232,7 @@
   }
 
   .mobileMenu {
+    all: unset;
     background-color: rgb(var(--bg));
     display: flex;
     flex-direction: column;
@@ -182,8 +242,14 @@
     padding: 1rem 1.5rem;
     border-radius: 5px;
     position: absolute;
-    top: 0;
-    right: 1rem;
+    top: 100%;
+    right: 3rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.659);
+  }
+
+  .mobileMenu:hover {
+    box-shadow: none;
+    border: 1px solid rgb(var(--theme-primary));
   }
 
   .closeBtn {
