@@ -74,3 +74,9 @@ h6 {
 .closeModal {
   all: unset;
 }
+
+@media screen and (max-width: 500px) {
+  .App {
+    overflow: unset;
+  }
+}

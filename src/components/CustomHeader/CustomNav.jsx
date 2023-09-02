@@ -19,12 +19,12 @@ const CustomNav = ({ styles, handleClick }) => {
                 to={ '/shows' }
                 className={ styles.navBtn }
                 onClick={ handleClick }
-            >Shows</NavLink>
-            <NavLink
+            >TV Shows</NavLink>
+            {/* <NavLink
                 to={ '/favorites' }
                 className={ styles.navBtn }
                 onClick={ handleClick }
-            >Favorites</NavLink>
+            >Favorites</NavLink> */}
 
         </>
     )

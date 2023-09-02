@@ -11,7 +11,7 @@ const CustomHeader = () => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false)
     const [userMenuOpen, setUserMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
 
     const applyBg = () => {
         if (window.scrollY >= 25) {
@@ -19,6 +19,10 @@ const CustomHeader = () => {
         } else {
             setScrolled(false)
         }
+    }
+
+    function logOut() {
+        setIsLoggedIn(false)
     }
 
     function navEnd() {
@@ -31,6 +35,8 @@ const CustomHeader = () => {
                             styles.hide}`
                     }
                 >
+
+
                     <CustomNav
                         styles={ styles }
                         handleClick={
@@ -42,6 +48,7 @@ const CustomHeader = () => {
                     <CloseIcon
                         className={ styles.closeBtn }
                         onClick={ async () => {
+                            setUserMenuOpen(false)
                             setHamburgerOpen(prev => !prev)
                         } } />
                 </div>
@@ -51,6 +58,7 @@ const CustomHeader = () => {
                     <div
                         className={ styles.hamburger }
                         onClick={ () => {
+                            setUserMenuOpen(false)
                             setHamburgerOpen(prev => !prev)
                         } }>
                         {/* <img src={ menuDots } alt="Open navigation" /> */ }
@@ -74,9 +82,14 @@ const CustomHeader = () => {
                     {
                         (!hamburgerOpen && userMenuOpen) &&
                         <ul className={ `${styles.userMenu}` }>
+                            <li><Link to={ 'favorites' }>Favorites</Link></li>
                             <li><Link to={ 'watchList' }>Watch List</Link></li>
-                            <li><Link to={ 'profile' }> View Profile</Link></li>
-                            <li><button><BiLogOut className={ styles.BiLogOut } /> Logout</button></li>
+                            {/* <li><Link to={ 'profile' }> View Profile</Link></li> */ }
+                            <button
+                                onClick={ () => {
+                                    logOut()
+                                } }
+                            ><BiLogOut className={ styles.BiLogOut } /> Logout</button>
                         </ul>
                     }
 
@@ -87,9 +100,14 @@ const CustomHeader = () => {
             return (
                 <div className={ styles.login_signup }>
                     <button
-                        className={ styles.login }>Log In</button>
+                        className={ styles.login }>
+                        Log In
+                    </button>
+
                     <button
-                        className={ styles.login }>Sign Up</button>
+                        className={ styles.signup }>
+                        Sign Up
+                    </button>
                 </div>
             )
         }
@@ -99,6 +117,7 @@ const CustomHeader = () => {
         window.addEventListener('scroll', () => {
             applyBg()
             setHamburgerOpen(false)
+            setUserMenuOpen(false)
         })
     }, [])
 
@@ -114,9 +133,9 @@ const CustomHeader = () => {
                 <CustomNav styles={ styles } />
             </nav>
 
-            <div className={ styles.profileDown }>
+            {/* <div className={ styles.profileDown }>
 
-            </div>
+            </div> */}
 
             {/* <div className={ `${styles.search}` }>
                 <input
