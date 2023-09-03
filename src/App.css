@@ -61,6 +61,21 @@ h6 {
   place-items: center;
 }
 
+.overLay {
+}
+
+.customModal {
+  background: rgb(var(--theme-primary)) !important;
+  border-radius: 10px;
+}
+
+.frame {
+  width: 50vw;
+  min-width: 80vmin;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+}
+
 /* .hello {
 } */
 

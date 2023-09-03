@@ -8,8 +8,12 @@ import { BiFastForward, BiLoader } from 'react-icons/bi';
 import { dummyMovies, sampleMovie, base_img_url, formatDate } from '../../utils';
 import spiderman from '../../assets/spiderman.jpg'
 import { Link } from 'react-router-dom';
+import { openTrailer } from '../../features/trailer/trailerSlice';
+import { useDispatch } from 'react-redux';
 
 const Home = () => {
+
+    const dispatch = useDispatch()
 
     const continueWatching = {
         title: "Continue watching",
@@ -60,6 +64,7 @@ const Home = () => {
                                                 key={ genre.id }
                                                 label={ genre.name }
                                                 customStyle={ styles.genrebtn }
+
                                             />))
                                         }
                                     </div>
@@ -82,9 +87,8 @@ const Home = () => {
                                 />
                                 <CustomButton
                                     label={ 'Watch Trailer' }
-                                    handleClick={ (workin) => { console.log(workin) } }
                                     icon={ <BsPlay /> }
-
+                                    handleClick={ () => dispatch(openTrailer('vZ734NWnAHA')) }
                                 />
                             </div>
                         </article>

@@ -1,27 +1,27 @@
 import './App.css'
 import { useEffect, useRef, useState } from 'react'
-import { BiCloset, BiLoader } from 'react-icons/bi'
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, Movies, Discover, Shows, Favorites } from './pages';
+import { Home, Movies, Shows, Favorites, Profile } from './pages';
 import { HeaderAndFooter } from './components';
-import Profile from './pages/Profile';
-import { sampleMovie } from './utils';
+// import Profile from './pages/Profile';
 import WatchList from './pages/WatchList';
 import Modal from 'react-responsive-modal';
-// import poster from './assets/backgrounds/posterBg.webp'
+import 'react-responsive-modal/styles.css';
+import { CloseIcon } from './assets';
+import { useSelector, useDispatch } from 'react-redux';
+import { closeTrailer } from './features/trailer/trailerSlice';
 
 function App() {
-  const myModal = useRef(null)
+
+  const { trailerOpen, trailerId } = useSelector((state) => state.trailer)
+  const dispatch = useDispatch()
+
   const [isLoading, setIsLoading] = useState(false)
-  const [trailerModalOpen, setTrailerModalOpen] = useState(true)
-  const modalContent = (<iframe
-    className={ 'frame' }
-    src="https://www.youtube.com/embed/9jH0wDp5GnQ"
-    title="How Spider-Verse Broke The Rules of 3D Animation"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-  ></iframe>)
+
+  const closeIcon = <CloseIcon
+    style={ { position: 'absolute', top: '-10px', right: '-6px', color: 'white', background: 'red', borderRadius: '50%', scale: '120%' } }
+  />
 
   useEffect(() => {
 
@@ -40,16 +40,27 @@ function App() {
 
   return (
     <div className="App">
-      <div ref={ myModal }>
-      </div>
-
-      <Modal
-        container={ myModal.current }
-        open={ true }
-      >
-        { modalContent }
-      </Modal>
       <Router>
+        {/* <div> */ }
+        <Modal
+          open={ trailerOpen }
+          center={ true }
+          onClose={ () => dispatch(closeTrailer()) }
+          classNames={ {
+            overlay: 'customOverlay',
+            modal: 'customModal'
+          } }
+          closeIcon={ closeIcon }
+        >
+          <iframe
+            className={ 'frame' }
+            src={ `https://www.youtube.com/embed/${trailerId}` }
+            title="How Spider-Verse Broke The Rules of 3D Animation"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </Modal>
+        {/* </div> */ }
         <Routes>
           <Route element={ <HeaderAndFooter /> }>
             <Route path='/' element={ <Home /> } />
@@ -60,8 +71,8 @@ function App() {
             <Route path='/profile' element={ <Profile /> } />
           </Route>
         </Routes>
-      </Router>
-    </div>
+      </Router >
+    </div >
   )
 }
 
