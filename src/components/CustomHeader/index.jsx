@@ -122,7 +122,6 @@ const CustomHeader = () => {
     }, [])
 
     return (
-
         <header className={ `${styles.CustomHeader} ${scrolled && styles.addBg}` } >
             <Link to={ '/' } className={ `${styles.logo} ${!scrolled && styles.fixColor}` }>
                 <img src={ logo } alt="Movieez" />
@@ -133,20 +132,25 @@ const CustomHeader = () => {
                 <CustomNav styles={ styles } />
             </nav>
 
-            {/* <div className={ styles.profileDown }>
+            {
+                /* 
+                <div className={styles.profileDown}>
+                </div>
+                */
+            }
 
-            </div> */}
-
-            {/* <div className={ `${styles.search}` }>
-                <input
-                    type="text"
-                    placeholder='Search by Title, Genres, etc.' />
-                <button
-                    type='submit'
-                    className={ styles.searchSubmit }>
-                    <SearchIcon />
-                </button>
-            </div> */}
+            {
+                /* <div className={ `${styles.search}` }>
+                    <input
+                        type="text"
+                        placeholder='Search by Title, Genres, etc.' />
+                    <button
+                        type='submit'
+                        className={ styles.searchSubmit }>
+                        <SearchIcon />
+                    </button>
+                </div> */
+            }
 
             {
                 navEnd()

@@ -2,12 +2,13 @@ import { HiHeart } from 'react-icons/hi'
 import styles from './favorites.module.css'
 import { dummyMovies, sampleMovie } from '../../utils'
 import { MovieCard } from '../../components';
+import Page from '../../components/Page';
 
 const Favorites = () => {
     const favorites = dummyMovies
 
     return (
-        <main className={ styles.favorites }>
+        <Page>
             <h1 className={ styles.mainTitle }>
                 <HiHeart
                     className={ styles.heartIcon }
@@ -25,7 +26,7 @@ const Favorites = () => {
 
                 }
             </section>
-        </main>
+        </Page>
     )
 }
 export default Favorites

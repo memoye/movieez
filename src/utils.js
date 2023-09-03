@@ -1,3 +1,5 @@
+import { pic, texture } from "./assets"
+
 export const sampleMovie = {
     "adult": false,
     "backdrop_path": "/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg",
@@ -112,6 +114,16 @@ export const dummyMovies = [
     sampleMovie
 ]
 
+export const sampleUser = {
+    name: 'Brown',
+    userImg: pic,
+    coverImg: texture,
+    joinDate: convertTimestamp(Date.now()),
+    favorites: [...dummyMovies], // movies you like...
+    watchlist: [...dummyMovies], //upcoming from watchlist
+    genres: ['action', 'sci-fi', 'animations', 'adventure']
+}
+
 export function formatDate(dateString) {
     const months = [
         "January", "February", "March", "April", "May", "June", "July",
@@ -125,4 +137,31 @@ export function formatDate(dateString) {
     return formattedDate;
 }
 
+export function convertTimestamp(timestamp) {
+    const date = new Date(timestamp);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-US', options);
+
+    return formattedDate;
+}
+
 export const base_img_url = 'https://image.tmdb.org/t/p/original'
+
+
+// convert minutes to 'HH hr, MM minutes'
+export function toTimeStr(minutes) {
+
+    minutes = Number(minutes)
+
+    if (minutes < 1) {
+        return "Less than a minute";
+    }
+
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+
+    const hourStr = hours > 0 ? `${hours} hour${hours > 1 ? 's' : ''}` : '';
+    const minuteStr = remainingMinutes > 0 ? `${remainingMinutes} minute${remainingMinutes > 1 ? 's' : ''}` : '';
+
+    return `${hourStr}${hourStr && minuteStr ? ', ' : ''}${minuteStr}`;
+}

@@ -2,6 +2,7 @@ import styles from './shows.module.css'
 import { useEffect, useState } from 'react';
 import { CustomButton, Featured, MovieCard } from '../../components';
 import { filterBtns, dummyMovies, sampleMovie, showCategories } from '../../utils'
+import Page from '../../components/Page';
 
 const Shows = () => {
     const [filters, setFilters] = useState(showCategories)
@@ -20,21 +21,18 @@ const Shows = () => {
         setFilters(updatedFilters);
     };
 
-
     const popularMovies = {
         title: "Popular movies",
         movies: dummyMovies,
         preview: 3
     }
 
-
     useEffect(() => {
         setSelected(dummyMovies)
     })
 
-
     return (
-        <main className={ styles.shows }>
+        <Page>
             {/* <div className={ styles.filterBtnsContainer }>
                 {
                     filters.map((btn) => <CustomButton
@@ -138,7 +136,7 @@ const Shows = () => {
                     handleClick={ () => { setPage(prev => prev + 1) } }
                 />
             </div> */}
-        </main>
+        </Page>
     )
 }
 export default Shows

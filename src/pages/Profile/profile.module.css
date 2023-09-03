@@ -1,6 +1,90 @@
-.profile {
+.coverImg {
+  width: 100vw;
+  max-width: 100%;
   margin: auto;
-  margin-top: 5rem;
-  min-width: 80vw;
-  padding-bottom: 2em;
+  height: 25vmin;
+}
+
+.profileImg {
+  border-radius: 50%;
+  width: 20vmin;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin: auto;
+  transform: translateY(70%);
+  outline: 1px solid rgb(var(--theme-primary));
+}
+
+.profileImg img {
+  width: 100%;
+}
+
+.joinDate {
+  font-weight: 200;
+  font-style: italic;
+  color: rgb(var(--theme-primary), 0.5);
+  margin-top: 0;
+}
+
+.user {
+  background: #0d0b02;
+}
+
+.name {
+  font-size: 1.75rem;
+}
+
+.userInfo {
+  padding-top: 12vmin;
+  text-align: center;
+}
+
+.genres {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px 0;
+  gap: 10px;
+}
+
+.genrebtn {
+  border: none !important;
+  font-weight: 400;
+  min-width: unset !important;
+  border-radius: 20px;
+  font-size: 10px;
+  background: rgb(var(--theme-primary), 0.4);
+}
+
+.genrebtn:hover {
+  background: rgb(var(--theme-primary));
+}
+
+.watchlistArea {
+  margin-top: 14px;
+}
+
+.buttons {
+  padding: 2rem;
+  display: flex;
+  gap: 10px;
+  place-items: center;
+  width: fit-content;
+  margin: auto;
+}
+
+.button {
+  font-size: 10px;
+  border-width: 1px;
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+}
+
+.delAcct {
+  background-color: rgba(255, 25, 0, 0.219);
+  border-color: rgba(255, 25, 0);
+  color: red;
 }
