@@ -16,7 +16,7 @@ import github from './icons/github.svg';
 import x from './icons/x.svg';
 import linkedIn from './icons/linkedIn.svg';
 import medium from './icons/medium.svg';
-
+import noImg from './backgrounds/notfound.gif';
 
 //...
 import { HiOutlineChevronDown as DownIcon } from 'react-icons/hi';
@@ -29,5 +29,5 @@ export {
     logo, heart, tableBg, pic, menuDots,
     DownIcon, SearchIcon, CloseIcon, MenuIcon, SignUp,
     google, fb, netflix, ms, spotify, yt,
-    texture, fauxTable, loadingImg, github, x, linkedIn, medium
+    texture, fauxTable, loadingImg, github, x, linkedIn, medium, noImg
 }

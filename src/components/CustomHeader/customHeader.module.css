@@ -12,7 +12,7 @@
   z-index: 10;
   position: fixed;
   width: 100%;
-  max-width: 14400px;
+  max-width: 1440px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -24,7 +24,8 @@
 
 .addBg {
   transition: 300ms ease all;
-  background: #0d0b02;
+  background: #0d0b02a5;
+  backdrop-filter: blur(10px);
   /* background: rgb(var(--bg)); */
 }
 

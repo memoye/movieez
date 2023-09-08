@@ -25,14 +25,15 @@ const ListCard = () => {
                     />
                     <span className={ styles.rating_label }>{ Number(vote_average).toFixed(1) / 2 } </span>
                 </p>
+
                 <p className={ styles.rating_label2 }>{ `${vote_count} votes` } </p>
 
                 <p className={ styles.duration }> <BsClockHistory style={ { color: 'rgb(var(--theme-primary))' } } />
                     <span className={ styles.duration_label }>{ toTimeStr(Number(props.runtime)) }</span>
                 </p>
             </div>
-            <div className={ styles.buttons }>
 
+            <div className={ styles.buttons }>
                 <button className={ styles.del }><BiTrash /></button>
                 <button className={ styles.viewtrailer }><RiMovieLine /></button>
             </div>

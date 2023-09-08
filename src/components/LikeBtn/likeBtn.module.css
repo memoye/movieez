@@ -1,0 +1,26 @@
+.heart {
+  all: unset;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  background-image: url("../../assets/icons/heart_animation.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 2900%;
+}
+
+.fav {
+  background-position: right;
+  animation: heart-burst 800ms steps(28) 1;
+}
+
+@keyframes heart-burst {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: left;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: right;
+  }
+}

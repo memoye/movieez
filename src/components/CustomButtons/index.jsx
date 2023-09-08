@@ -5,7 +5,7 @@ const CustomButton = ({ label, handleClick, filled, icon, customStyle }) => {
         <button
             className={ `${styles.customButton} ${filled && styles.filled} ${customStyle}` }
             onClick={ () => {
-                handleClick('working yes')
+                handleClick()
             } }>
 
             {

@@ -1,19 +1,30 @@
 import { useState } from 'react';
 import styles from './home.module.css'
-import poster from '../../assets/backgrounds/posterBg.webp';
-import { CustomButton, Featured, MovieCard } from '../../components';
-import { BsArrowRight, BsPlay, BsStar } from 'react-icons/bs'
-import { google, fb, netflix, ms, spotify, yt, SignUp, loadingImg } from '../../assets'
-import { BiFastForward, BiLoader } from 'react-icons/bi';
-import { dummyMovies, sampleMovie, base_img_url, formatDate } from '../../utils';
-import spiderman from '../../assets/spiderman.jpg'
+import { CustomButton, Featured, MovieCard, Ellipse } from '../../components';
+import { BsArrowRight, BsPlay, BsYoutube } from 'react-icons/bs'
+import { SignUp } from '../../assets'
+import { dummyMovies, sampleMovie, base_img_url, formatDate, preview } from '../../utils';
 import { Link } from 'react-router-dom';
-import { openTrailer } from '../../features/trailer/trailerSlice';
+import { fetchVids, openRandomClip, openTrailer, } from '../../features/trailer/trailerSlice';
 import { useDispatch } from 'react-redux';
+
 
 const Home = () => {
 
     const dispatch = useDispatch()
+
+    const handleOpenTrailer = () => {
+        // Perform any necessary logic here
+        dispatch(openTrailer());
+        dispatch(fetchVids(sampleMovie.id));
+    };
+
+    const handleOpenRandomClip = () => {
+        // Perform any necessary logic here
+        dispatch(openRandomClip());
+        dispatch(fetchVids(sampleMovie.id));
+    };
+
 
     const continueWatching = {
         title: "Continue watching",
@@ -55,7 +66,7 @@ const Home = () => {
                         <article className={ styles.heroText }>
                             <div>
                                 <h1 className={ styles.heroTitle }>{ sampleMovie.original_title }</h1>
-                                <p className={ styles.heroDesc }>{ sampleMovie.overview }</p>
+                                <p className={ styles.heroDesc }>{ preview(sampleMovie.overview) } <Ellipse />  </p>
                                 <div className={ styles.meta }>
 
                                     <div className={ styles.genres }>
@@ -80,15 +91,15 @@ const Home = () => {
 
                             <div className={ styles.heroCTA }>
                                 <CustomButton
-                                    label={ 'Watch Movie' }
-                                    handleClick={ (workin) => { console.log(workin) } }
-                                    icon={ <BsPlay /> }
+                                    label={ 'Movie Clip' }
+                                    icon={ <BsYoutube /> }
                                     filled={ true }
+                                    handleClick={ handleOpenRandomClip }
                                 />
                                 <CustomButton
                                     label={ 'Watch Trailer' }
                                     icon={ <BsPlay /> }
-                                    handleClick={ () => dispatch(openTrailer('vZ734NWnAHA')) }
+                                    handleClick={ handleOpenTrailer }
                                 />
                             </div>
                         </article>

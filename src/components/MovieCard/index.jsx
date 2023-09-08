@@ -19,7 +19,7 @@ const MovieCard = (props) => {
         <div
             className={ `${styles.movieCard} ${customStyles && customStyles}` } >
             <div className={ styles.poster }>
-                <img className={ props.poster ? styles.posterStyle : null } src={ `${base_img_url + (props.poster ? props.poster_path : props.backdrop_path)}` } alt="title" />
+                <img className={ `${props.poster ? styles.posterStyle : styles.bkdrop}` } src={ `${base_img_url + (props.poster ? props.poster_path : props.backdrop_path)}` } alt="title" />
             </div>
             <div className={ styles.cardOverlay }>
                 <div className={ styles.rating }>

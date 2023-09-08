@@ -4,8 +4,13 @@ import HeaderAndFooter from './HeaderAndFooter'
 import CustomButton from './CustomButtons'
 import Featured from './Featured'
 import MovieCard from './MovieCard'
+import Actor from './Actor'
+import Page from './Page'
+import Ellipse from './Ellipse'
+import LikeBtn from './LikeBtn'
+import VidCarousel from './VidCarousel'
 
 
 export {
-    CustomHeader, CustomFooter, HeaderAndFooter, CustomButton, Featured, MovieCard
+    CustomHeader, CustomFooter, HeaderAndFooter, CustomButton, Featured, MovieCard, Actor, Page, Ellipse, LikeBtn, VidCarousel
 }

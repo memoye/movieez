@@ -2,19 +2,19 @@ import './App.css'
 import { useEffect, useRef, useState } from 'react'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, Movies, Shows, Favorites, Profile } from './pages';
+import { Home, Movies, Shows, Favorites, Profile, SignIn, Details } from './pages';
 import { HeaderAndFooter } from './components';
 // import Profile from './pages/Profile';
 import WatchList from './pages/WatchList';
 import Modal from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
-import { CloseIcon } from './assets';
+import { CloseIcon, loadingImg } from './assets';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeTrailer } from './features/trailer/trailerSlice';
+import { closeModal } from './features/trailer/trailerSlice';
 
 function App() {
 
-  const { trailerOpen, trailerId } = useSelector((state) => state.trailer)
+  const { trailerOpen, trailerId, randomClipOpen, randomClipId, loading } = useSelector((state) => state.trailer)
   const dispatch = useDispatch()
 
   const [isLoading, setIsLoading] = useState(false)
@@ -24,7 +24,7 @@ function App() {
   />
 
   useEffect(() => {
-
+    // console.log(`App.jsx`)
   }, [])
 
 
@@ -41,11 +41,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <div> */ }
+
         <Modal
           open={ trailerOpen }
           center={ true }
-          onClose={ () => dispatch(closeTrailer()) }
+          onClose={ () => dispatch(closeModal()) }
           classNames={ {
             overlay: 'customOverlay',
             modal: 'customModal'
@@ -60,7 +60,26 @@ function App() {
             allowFullScreen
           ></iframe>
         </Modal>
-        {/* </div> */ }
+
+        <Modal
+          open={ randomClipOpen }
+          center={ true }
+          onClose={ () => dispatch(closeModal()) }
+          classNames={ {
+            overlay: 'customOverlay',
+            modal: 'customModal'
+          } }
+          closeIcon={ closeIcon }
+        >
+          <iframe
+            className={ 'frame' }
+            src={ `https://www.youtube.com/embed/${randomClipId}` }
+            title="How Spider-Verse Broke The Rules of 3D Animation"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </Modal>
+
         <Routes>
           <Route element={ <HeaderAndFooter /> }>
             <Route path='/' element={ <Home /> } />
@@ -69,7 +88,9 @@ function App() {
             <Route path='/favorites' element={ <Favorites /> } />
             <Route path='/watchList' element={ <WatchList /> } />
             <Route path='/profile' element={ <Profile /> } />
+            <Route path='/details' element={ <Details /> } />
           </Route>
+          <Route to={ '/signin' } element={ <SignIn /> } />
         </Routes>
       </Router >
     </div >

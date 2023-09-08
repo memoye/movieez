@@ -1,0 +1,55 @@
+/* CSS for the Carousel component */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel_wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0; /* Adjust as needed */
+}
+
+.carousel_item {
+  flex: 0 0 auto;
+  margin-right: 20px; /* Adjust spacing between items as needed */
+}
+
+/* CSS for the YouTube video container */
+.youtube_video_container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (adjust as needed) */
+}
+
+/* CSS for the embedded YouTube video */
+.youtube_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* CSS for the carousel buttons */
+.carousel_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  padding: 10px;
+  font-size: 24px; /* Adjust button font size as needed */
+  cursor: pointer;
+}
+
+.carousel_button.left {
+  left: 10px; /* Adjust button position from the left */
+}
+
+.carousel_button.right {
+  right: 10px; /* Adjust button position from the right */
+}

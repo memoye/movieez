@@ -1,0 +1,86 @@
+.actor {
+  box-sizing: border-box;
+  width: 200px;
+  border: 2px solid rgba(var(--theme-primary), 0.1);
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  transition: border-color 0.3s ease-in;
+}
+
+.actor:hover {
+  border-color: rgba(var(--theme-primary), 0.5);
+}
+
+.actor_img {
+  height: 15rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.actor_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.desc {
+  margin-top: 1em;
+}
+
+.name,
+.as,
+.role {
+  margin: 0;
+}
+
+.role {
+  text-transform: uppercase;
+}
+
+.name {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: -1.2px;
+}
+
+.as {
+  font-weight: 200;
+  font-style: italic;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  place-items: center;
+  gap: 5px;
+  color: rgba(var(--theme-primary), 0.75);
+}
+.as::before {
+  justify-self: end;
+  background: linear-gradient(
+    to left,
+    rgba(var(--theme-primary), 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+.as::after {
+  justify-self: start;
+  background: linear-gradient(
+    to right,
+    rgb(var(--theme-primary), 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.as::before,
+.as::after {
+  content: "";
+  height: 1px;
+  width: 50% !important;
+}
+
+.role {
+  letter-spacing: 1.2px;
+  font-size: 0.8rem;
+  color: rgb(var(--theme-primary));
+}

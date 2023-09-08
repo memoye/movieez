@@ -23,6 +23,9 @@
 
 .poster img {
   width: 100%;
+}
+
+.movieCard:hover .bkdrop {
   animation: slowZoom 100s linear infinite alternate;
 }
 
