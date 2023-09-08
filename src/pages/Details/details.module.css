@@ -310,6 +310,37 @@
 .similarMovies {
 }
 
+.similar_title {
+  width: 90%;
+  padding: 10px 2em;
+  margin: auto;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.sampleMovieGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  gap: 10px;
+  max-width: 80vw;
+  margin: auto;
+}
+
+.sampleMovie {
+}
+
+@media screen and (max-width: 900px) {
+  .sampleMovieGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .sampleMovie {
+    /* margin: auto 2rem; */
+  }
+}
+
 @media screen and (max-width: 500px) {
   .details_hero {
     flex-direction: column;

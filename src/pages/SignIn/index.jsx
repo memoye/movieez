@@ -1,10 +1,11 @@
+import { Page } from '../../components'
 import styles from './signIn.module.css'
 
 const SignIn = () => {
     return (
-        <div className={ styles.signIn }>
+        <Page className={ styles.signIn }>
             signin
-        </div>
+        </Page>
     )
 }
 

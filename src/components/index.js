@@ -9,8 +9,8 @@ import Page from './Page'
 import Ellipse from './Ellipse'
 import LikeBtn from './LikeBtn'
 import VidCarousel from './VidCarousel'
-
+import ListCard from './ListCard';
 
 export {
-    CustomHeader, CustomFooter, HeaderAndFooter, CustomButton, Featured, MovieCard, Actor, Page, Ellipse, LikeBtn, VidCarousel
+    CustomHeader, CustomFooter, HeaderAndFooter, CustomButton, Featured, MovieCard, Actor, Page, Ellipse, LikeBtn, ListCard, VidCarousel
 }

@@ -1,4 +1,4 @@
-import { Page, Actor, LikeBtn, CustomButton, Ellipse, MovieCard } from "../../components"
+import { Page, Actor, LikeBtn, CustomButton, Ellipse, MovieCard, Featured, ListCard } from "../../components"
 import { base_img_url, getYear, langToStr, sampleMovie } from "../../utils"
 import ReactStarsRating from 'react-awesome-stars-rating'
 import styles from './details.module.css'
@@ -167,17 +167,17 @@ const Details = () => {
                                     }
                                 })
                             }
+                            { castAmt < sampleMovie.credits.cast.length &&
+                                <CustomButton
+                                    label={ 'Load more' }
+                                    handleClick={ () => {
+                                        setCastAmt(prev => prev + 5)
+                                    } }
+                                    customStyle={ styles.loadMore }
+                                    filled
+                                />
+                            }
                         </div>
-                        { castAmt < sampleMovie.credits.cast.length &&
-                            <CustomButton
-                                label={ 'Load more' }
-                                handleClick={ () => {
-                                    setCastAmt(prev => prev + 5)
-                                } }
-                                customStyle={ styles.loadMore }
-                                filled
-                            />
-                        }
                     </div>
 
                     <div className={ styles.crew }>
@@ -240,7 +240,7 @@ const Details = () => {
                                     key={ word.id }
                                     id={ word.id }
                                     handleClick={
-                                        console.log('open page that fetches with id')
+                                        console.log('Details:keyWords =>', 'open page that fetches with id')
                                     }
                                 />
                             )) }
@@ -250,18 +250,25 @@ const Details = () => {
 
             <section className={ styles.similarMoviesContainer }>
                 <div className={ styles.similarMovies }>
-                    {
-                        sampleMovie.similar?.results.map((mov, index) => {
-                            if (index < 6) {
-                                return (
-                                    <MovieCard
-                                        key={ mov.id }
-                                        { ...mov }
-                                    />
-                                )
-                            }
-                        })
-                    }
+
+
+
+                    <h4 className={ styles.similar_title }>More like this</h4>
+                    <div className={ styles.sampleMovieGrid }>
+                        {
+                            sampleMovie.similar?.results.map((movie, index) => {
+                                if (index < 6) {
+                                    return (
+                                        <MovieCard
+                                            key={ movie.id }
+                                            { ...movie }
+                                            customStyles={ styles.sampleMovie }
+                                        />
+                                    )
+                                }
+                            })
+                        }
+                    </div>
                 </div>
             </section>
         </Page >

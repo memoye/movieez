@@ -90,7 +90,8 @@ function App() {
             <Route path='/profile' element={ <Profile /> } />
             <Route path='/details' element={ <Details /> } />
           </Route>
-          <Route to={ '/signin' } element={ <SignIn /> } />
+
+          <Route path={ '/signin' } element={ <SignIn /> } />
         </Routes>
       </Router >
     </div >

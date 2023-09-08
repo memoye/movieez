@@ -5,9 +5,9 @@ import { RiMovieLine } from 'react-icons/ri'
 import { BsClockHistory } from 'react-icons/bs'
 import ReactStarsRating from 'react-awesome-stars-rating';
 
-const ListCard = () => {
+const ListCard = (props) => {
     const Rating = ReactStarsRating
-    const props = dummyMovies[0]
+
     const { title, poster_path, original_title, release_date, vote_average, vote_count } = props
 
     return (
@@ -16,14 +16,14 @@ const ListCard = () => {
                 <img src={ `${base_img_url}${poster_path}` } alt={ title + ' poster' } />
             </div>
             <div className={ styles.desc }>
-                <h3 className={ styles.name }>{ `${original_title}  (${release_date.slice(0, 4)})` }</h3>
+                <h3 className={ styles.name }>{ `${original_title}  (${release_date?.slice(0, 4)})` }</h3>
 
                 <p className={ styles.rating }>
                     <Rating
                         value={ Number(vote_average).toFixed(1) / 2 }
                         size={ 14 }
                     />
-                    <span className={ styles.rating_label }>{ Number(vote_average).toFixed(1) / 2 } </span>
+                    <span className={ styles.rating_label }>{ Number(vote_average)?.toFixed(1) / 2 } </span>
                 </p>
 
                 <p className={ styles.rating_label2 }>{ `${vote_count} votes` } </p>
